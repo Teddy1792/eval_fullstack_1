@@ -1,0 +1,107 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #767676;
+  padding: 40px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vertical-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #28a745;
+  border-radius: 5px;
+  padding: 10px 20px;
+  max-height: 39px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  color: black;
+  max-height: 39px;
+  margin: 0px;
+}
+
+input[type="checkbox"] {
+  accent-color: blue;
+}
+
+select {
+  max-height: 39px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+}
+
+.task-item {
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.completed {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.custom-button {
+  background-color: #28a745;
+  border-radius: 5px;
+  padding: 8px 12px;
+  min-width: 120px;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.custom-input {
+  padding: 6px 10px;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 39px;
+}
+
+.custom-select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  max-height: 39px;
+  margin: 0px;
+}
+
+.error-message {
+  color: rgb(255, 0, 0);
+}
