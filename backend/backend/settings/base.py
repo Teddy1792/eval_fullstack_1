@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
+
 
 def get_env_list(name, default=""):
     value = os.environ.get(name, default)
@@ -41,6 +43,10 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5173",
+]
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "baggage",
+    "sentry-trace",
 ]
 
 ROOT_URLCONF = 'backend.urls'
