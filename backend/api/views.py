@@ -8,6 +8,7 @@ from .models import Category, Task
 from .serializers import CategorySerializer, TaskSerializer
 
 
+@api_view(['GET', 'HEAD'])
 def health(request):
     try:
         with connection.cursor() as cursor:
