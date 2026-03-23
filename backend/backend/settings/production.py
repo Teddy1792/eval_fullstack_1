@@ -1,8 +1,12 @@
 import os
 
 import dj_database_url
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
+try:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+except ImportError:  # pragma: no cover - keeps production bootable if SDK is absent
+    sentry_sdk = None
+    DjangoIntegration = None
 
 from .base import *
 
@@ -24,7 +28,7 @@ DATABASES = {
 
 SENTRY_DSN = os.environ.get('SENTRY_DSN')
 
-if SENTRY_DSN:
+if SENTRY_DSN and sentry_sdk and DjangoIntegration:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
         integrations=[DjangoIntegration()],
