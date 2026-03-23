@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { CustomButton } from "./component/CustomButton";
-import { CustomInput } from "./component/CustomInput";
-import { CustomSelect } from "./component/CustomSelect";
+import { CustomButton } from "./component/customButton";
+import { CustomInput } from "./component/customInput";
+import { CustomSelect } from "./component/customSelect";
 import {
   getCategories,
   createCategory,
