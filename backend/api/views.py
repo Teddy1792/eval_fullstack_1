@@ -1,8 +1,33 @@
+from django.http import JsonResponse
+from django.db import connection
+from django.db.utils import OperationalError
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Category, Task
 from .serializers import CategorySerializer, TaskSerializer
+
+
+@api_view(['GET'])
+def health(request):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('SELECT 1')
+            cursor.fetchone()
+    except OperationalError:
+        return JsonResponse(
+            {"status": "error", "message": "API is unhealthy", "database": "unreachable"},
+            status=status.HTTP_503_SERVICE_UNAVAILABLE,
+        )
+
+    return JsonResponse({"status": "ok", "message": "API is healthy", "database": "ok"})
+
+
+@api_view(['GET'])
+def trigger_error(request):
+    division_by_zero = 1 / 0
+    return JsonResponse({"this": "will never be returned"})
+
 
 @api_view(['GET', 'POST'])
 def categories(request):

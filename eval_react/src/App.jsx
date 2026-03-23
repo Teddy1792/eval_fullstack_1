@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import * as Sentry from "@sentry/react";
 import { CustomButton } from "./component/customButton";
 import { CustomInput } from "./component/customInput";
 import { CustomSelect } from "./component/customSelect";
@@ -274,6 +275,14 @@ export default function App() {
 
           <CustomButton onClick={handleAddCategory} disabled={creatingCategory}>
             {creatingCategory ? "Création..." : "Ajouter une catégorie"}
+          </CustomButton>
+
+          <CustomButton
+            onClick={() =>
+              Sentry.captureException(new Error("React Sentry test error"))
+            }
+          >
+            Tester Sentry React
           </CustomButton>
         </div>
 
