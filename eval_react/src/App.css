@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .app-container {
@@ -10,12 +11,14 @@
   background-color: white;
   border: 1px solid #767676;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .row {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .vertical-gap {
@@ -28,10 +31,11 @@ button {
   background-color: #28a745;
   border-radius: 5px;
   padding: 10px 20px;
-  max-height: 39px;
+  min-height: 39px;
   color: white;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 input[type="text"] {
@@ -39,19 +43,24 @@ input[type="text"] {
   padding: 8px;
   border-radius: 5px;
   color: black;
-  max-height: 39px;
+  min-height: 39px;
   margin: 0px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input[type="checkbox"] {
   accent-color: blue;
+  flex-shrink: 0;
 }
 
 select {
-  max-height: 39px;
+  min-height: 39px;
   border: 1px solid #ccc;
   padding: 8px;
   color: black;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 ul {
@@ -70,6 +79,10 @@ li {
   gap: 1rem;
   margin-top: 10px;
   margin-bottom: 0.5rem;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  flex-wrap: wrap;
 }
 
 .completed {
@@ -92,16 +105,65 @@ li {
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 5px;
-  max-height: 39px;
+  min-height: 39px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .custom-select {
   padding: 6px 10px;
   border: 1px solid #ccc;
-  max-height: 39px;
+  min-height: 39px;
   margin: 0px;
 }
 
 .error-message {
   color: rgb(255, 0, 0);
+  margin-top: 0.35rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .app-container {
+    padding: 20px 16px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .row > div {
+    width: 100%;
+  }
+
+  button,
+  .custom-button {
+    width: 100%;
+    max-width: none;
+    white-space: normal;
+  }
+
+  .task-item {
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.75rem;
+  }
+
+  .app-container {
+    padding: 16px 12px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
 }
