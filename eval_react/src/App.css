@@ -141,6 +141,11 @@ li {
     width: 100%;
   }
 
+  select,
+  .custom-select {
+    margin: 0;
+  }
+
   button,
   .custom-button {
     width: 100%;
