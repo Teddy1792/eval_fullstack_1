@@ -61,6 +61,7 @@ select {
   color: black;
   width: 100%;
   box-sizing: border-box;
+  margin: 0;
 }
 
 ul {
@@ -139,11 +140,6 @@ li {
 
   .row > div {
     width: 100%;
-  }
-
-  select,
-  .custom-select {
-    margin: 0;
   }
 
   button,
